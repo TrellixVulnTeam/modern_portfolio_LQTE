@@ -1,0 +1,15 @@
+{
+  "name": "modern_portfolio",
+  "version": "1.0.0",
+  "description": "Respponsive Portfolio Website",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "sass": "node-sass -w SCSS/ -o dist/css/ --recursive"
+  },
+  "author": "Tomi West",
+  "license": "MIT"
+}
