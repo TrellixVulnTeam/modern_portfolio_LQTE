@@ -1,6 +1,82 @@
-$primary-color: #444;
+@import "config";
 
+* {
+  box-sizing: border-box;
+}
 body {
+  @include background;
   background: $primary-color;
   color: #fff;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+//headings
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+  //large heading
+  &.lg-heading {
+    font-size: 6rem;
+  }
+  //small heading
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    //lighten the background
+    //background: rgba(lighten ($primary-color, 2), 0.5);
+    background: lighten($primary-color, $amount: 2);
+  }
+}
+//links
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  //button stay on top, even when scroll
+  position: fixed;
+  //bigger number the closer it is
+  z-index: 2;
+  //stretch accross the whole screen
+  width: 100%;
+}
+.text-secondary {
+  color: $secondary-color;
+}
+
+//main files, not in the heading
+main {
+  //4rem around everything
+  padding: 4rem;
+  height: 100%;
+
+  //move icons, nesting -> only affect icons inside main tab
+  .icons {
+    margin-top: 1rem;
+    a {
+      padding: 0.4rem;
+      //when you hover your mouse over icon, it will show a color
+      &:hover {
+        color: $secondary-color;
+        //does no work
+        @include easeOut();
+      }
+    }
+  }
+  //affect all name home, like the main
+  &#home {
+    //no scrollbars
+    overflow: hidden;
+    h1 {
+      //view port height, 1 is one slice accross the screen
+      //50 would take half of the screen
+      //vw is vetical slices
+      margin-top: 20vh;
+    }
+  }
 }
